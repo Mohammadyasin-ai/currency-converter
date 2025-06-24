@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<link src="stylesheet" href="index.css">
+<script src="script.js"></script>
+<body>
+    <div class="converter-container p-6">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Currency Converter</h1>
+        
+        <div class="flex flex-col space-y-4">
+            <!-- Amount Input -->
+            <div class="flex flex-col">
+                <label for="amount" class="text-sm font-medium text-gray-700 mb-1">Amount</label>
+                <div class="relative">
+                    <input 
+                        type="number" 
+                        id="amount" 
+                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                        placeholder="Enter amount"
+                        min="0"
+                        step="0.01"
+                        value="1"
+                    >
+                </div>
+            </div>
+            
+            <!-- From Currency -->
+            <div class="flex flex-col">
+                <label for="from" class="text-sm font-medium text-gray-700 mb-1">From</label>
+                <select 
+                    id="from" 
+                    class="currency-select w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                >
+                    <option value="USD" selected>United States Dollar (USD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="GBP">British Pound (GBP)</option>
+                    <option value="JPY">Japanese Yen (JPY)</option>
+                    <option value="AUD">Australian Dollar (AUD)</option>
+                    <option value="CAD">Canadian Dollar (CAD)</option>
+                    <option value="CHF">Swiss Franc (CHF)</option>
+                    <option value="CNY">Chinese Yuan (CNY)</option>
+                    <option value="INR">Indian Rupee (INR)</option>
+                </select>
+            </div>
+            
+            <!-- Swap Button -->
+            <div class="flex justify-center">
+                <button id="swap" class="swap-btn">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+            </div>
+            
+            <!-- To Currency -->
+            <div class="flex flex-col">
+                <label for="to" class="text-sm font-medium text-gray-700 mb-1">To</label>
+                <select 
+                    id="to" 
+                    class="currency-select w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                >
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="USD" selected>United States Dollar (USD)</option>
+                    <option value="GBP">British Pound (GBP)</option>
+                    <option value="JPY">Japanese Yen (JPY)</option>
+                    <option value="AUD">Australian Dollar (AUD)</option>
+                    <option value="CAD">Canadian Dollar (CAD)</option>
+                    <option value="CHF">Swiss Franc (CHF)</option>
+                    <option value="CNY">Chinese Yuan (CNY)</option>
+                    <option value="INR">Indian Rupee (INR)</option>
+                </select>
+            </div>
+            
+            <!-- Convert Button -->
+            <button 
+                id="convert" 
+                class="w-full py-3 px-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-medium rounded-lg hover:from-indigo-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300"
+            >
+                Convert
+            </button>
+            
+            <!-- Result -->
+            <div id="result" class="result hidden">
+                <div class="text-center">
+                    <p id="from-result" class="text-xl font-semibold text-gray-800"></p>
+                    <p class="text-3xl font-bold text-indigo-600 my-3">=</p>
+                    <p id="to-result" class="text-2xl font-bold text-gray-900"></p>
+                    <p id="rate" class="text-sm text-gray-600 mt-2"></p>
+                </div>
+            </div>
+            
+            <p id="last-updated" class="last-updated"></p>
+        </div>
+    </div>
+
+    
+</body>
+</html>
